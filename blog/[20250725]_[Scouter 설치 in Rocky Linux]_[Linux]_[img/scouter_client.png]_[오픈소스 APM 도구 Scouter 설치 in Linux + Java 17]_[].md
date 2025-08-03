@@ -1,6 +1,6 @@
 # 오픈소스 APM 도구 Scouter 설치 방법
 
-* 작업 환경: Rocky Linux + Java 17(openJDK)
+* 작업 환경: Scouter 2.20.0 + Rocky Linux + Java 17(openJDK)
 
 ```Shell
 # dnf install
