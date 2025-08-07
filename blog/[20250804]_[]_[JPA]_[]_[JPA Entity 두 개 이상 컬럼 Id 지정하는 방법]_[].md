@@ -2,6 +2,7 @@
 
 * IdClass?
 
+일반적인 Long 타입 id로 key를 지정하는 엔티티 예시
 
 ```Java
 
