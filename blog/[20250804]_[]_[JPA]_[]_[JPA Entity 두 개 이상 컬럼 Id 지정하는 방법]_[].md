@@ -21,7 +21,28 @@ public class EmployeeEntity {
     private String deptId;
 
     // 생략...
+
 }
 
 ```
+
+별도 IdClass로 key를 지정하는 엔티티 예시
+
+```Java
+@Getter
+@Entity
+@IdClass(EmployeeEntityKey.class)
+public class EmployeeEntity {
+
+    @Id
+    @Column(name = "EMP_NO")
+    private Long empNo;
+
+    @Id
+    @Column(name = "DEPT_ID")
+    private String deptId;
+
+    // 생략...
+    
+}
 
