@@ -45,4 +45,8 @@ public class EmployeeEntity {
     // 생략...
     
 }
+```
+
+@IdClass annotation에 대상 클래스를 지정한다.
+
 
