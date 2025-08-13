@@ -48,5 +48,5 @@ public class EmployeeEntity {
 ```
 
 @IdClass annotation에 대상 클래스를 지정한다.
-
+@IdClass는 Serializable 를 구현하여 @Serial 필드를 설정한다.
 
