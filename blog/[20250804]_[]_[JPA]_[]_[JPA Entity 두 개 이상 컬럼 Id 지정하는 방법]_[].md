@@ -48,5 +48,22 @@ public class EmployeeEntity {
 ```
 
 @IdClass annotation에 대상 클래스를 지정한다.
-@IdClass는 Serializable 를 구현하여 @Serial 필드를 설정한다.
+@IdClass는 Serializable를 구현하여 @Serial 필드를 설정한다.
+
+
+```Java
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+public class EmployeeEntityKey implements Serializable {
+
+    @Serial
+    private static final long = 202508171001L;
+    private Long empNo;
+    private String deptId;
+
+}
+
 
