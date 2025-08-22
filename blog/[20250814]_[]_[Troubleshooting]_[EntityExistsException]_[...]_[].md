@@ -1,4 +1,4 @@
-# h1 EntityExistsException
+# EntityExistsException
 
 > 
 javax.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session : [com.slp.module.ifs.item.receiver.entity.ItemUnitMaster#112]
