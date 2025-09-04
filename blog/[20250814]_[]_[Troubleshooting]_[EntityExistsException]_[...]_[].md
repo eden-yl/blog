@@ -175,18 +175,23 @@ javax.persistence.EntityExistsException: A different object with the same identi
 	at java.base/java.lang.Thread.run(Thread.java:840)
 
 # Solution
-The error message "A different object with the same identifier value was already associated with the session" typically arises in Object-Relational Mapping (ORM) frameworks like Hibernate or JPA. It indicates that the persistence context (the "session") already contains an object with the same primary key (identifier) as an object you are currently attempting to persist or merge. 
+## The error message "A different object with the same identifier value was already associated with the session" typically arises in Object-Relational Mapping (ORM) frameworks like Hibernate or JPA. It indicates that the persistence context (the "session") already contains an object with the same primary key (identifier) as an object you are currently attempting to persist or merge. 
+
 This usually occurs in the following scenarios:
-Detached Object Re-attachment:
+
+## Detached Object Re-attachment:
 An object was loaded in one session, then that session was closed or the object was detached (e.g., using session.evict()). Later, an attempt is made to save or update this same detached object instance in a new session, while another object representing the same database row is already attached to this new session. The ORM framework cannot determine which object is the "true" version.
 Multiple Object Instances in a Single Session:
 You are attempting to save or update two distinct Java object instances that both map to the same database row (i.e., have the same primary key) within the same active session. The session can only manage one instance of an entity with a given identifier at a time.
-Solutions:
-Use session.merge() for detached objects:
+
+# Solutions:
+## Use session.merge() for detached objects:
 If you are working with a detached object that you want to re-attach and update, use session.merge(detachedObject). This method will either re-attach the detached object if no other instance with the same identifier exists in the session, or merge the state of the detached object into the existing attached instance.
 Ensure only one instance per identifier in a session:
 If you are creating new objects or loading them, ensure that you are not creating or loading multiple instances that represent the same database row within a single session.
-Manage session lifecycle carefully:
+
+## Manage session lifecycle carefully:
 Be mindful of when sessions are opened and closed. If you are using a long-running session, ensure that objects are not being detached and re-attached unnecessarily.
-Clear or evict objects from the session:
+
+## Clear or evict objects from the session:
 If you no longer need an object within a session, you can explicitly remove it using session.evict(object) or clear the entire session's cache with session.clear(). This can be useful in scenarios where you are processing a large number of entities and want to manage memory usage.
