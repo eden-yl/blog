@@ -1,4 +1,5 @@
 ## 이미 생성된 테이블에 특정 컬럼을 추가해야 할 경우, create가 아닌 update 옵션으로 처리 가능하다.
+### 다만 update 옵션 사용할 경우 컬럼 순서는 필드 순서대로 보장되지 않고 새 컬럼이 가장 끝에 추가됨.
 
 3. select * from all_sequences
  {executed in 7 msec}
