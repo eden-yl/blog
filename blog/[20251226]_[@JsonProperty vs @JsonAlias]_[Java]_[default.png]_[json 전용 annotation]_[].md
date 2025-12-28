@@ -1,8 +1,9 @@
 ## @JsonProperty vs @JsonAlias
 
-### Example code
+### The difference
 In Jackson, the key difference is that @JsonProperty defines the single, logical name used for both serialization (Java object to JSON) and deserialization (JSON to Java object), while @JsonAlias specifies one or more alternative names that are only accepted during deserialization. 
-@JsonProperty vs. @JsonAlias
+
+### @JsonProperty vs. @JsonAlias
 Feature 	@JsonProperty	@JsonAlias
 Primary Use	Defines the primary JSON property name to use when converting between Java objects and JSON.	Defines one or more secondary, alternative names to accept from incoming JSON.
 Serialization	The value specified in @JsonProperty is used as the key in the generated JSON output.	Aliases are ignored during serialization; only the actual field name or @JsonProperty name is used.
