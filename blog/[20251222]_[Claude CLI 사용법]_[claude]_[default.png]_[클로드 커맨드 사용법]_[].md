@@ -1,42 +1,10 @@
-## flushCache 옵션
+## Terminal 혹은 cmd 실행 후 대상 workspace 경로로 이동하여 claude 명령어 실행
 
-### Example code
-```XML
-<!-- This insert statement will flush the cache after execution (default behavior for inserts) -->
-<insert id="insertUser" ... flushCache="true">
-    ...
-</insert>
+```bash
+$ cd .../workspace/project1
+$ claude
 
-<!-- This select statement will flush the cache every time it is called -->
-<select id="selectLatestData" resultType="map" flushCache="true">
-    ...
-</select>
-
-<!-- Default for select: flushCache="false" and useCache="true" (if 2nd level cache is enabled) -->
-<select id="selectUserData" resultType="User">
-    ...
-</select>
+# 클로드 계정을 통해 로그인 후 대화 가능
 
 ```
 
-```java
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
-
-public interface MyMapper {
-
-    @Select("SELECT * FROM users WHERE id = #{id}")
-    @Options(flushCache = true)
-    User selectUserAndFlushCache(int id);
-}
-
-```
-
-### Key Points
-Cache Levels: It affects both the local session cache (scoped to a single SqlSession) and the second-level cache (scoped to the entire SqlSessionFactory).
-
-Purpose: It is essential when you need to ensure that subsequent queries retrieve the absolute latest data from the database, bypassing any stale cache entries.
-
-Default Behavior: Update, insert, and delete operations inherently flush the cache to maintain data consistency. Select operations do not, by default.
-
-Alternative Control: You can also control the local cache scope by setting the localCacheScope in the MyBatis configuration to STATEMENT, which effectively disables the local cache for the duration of the statement. 
