@@ -25,4 +25,3 @@ WHERE TRY_CAST(source_column AS NUMERIC(P, S)) IS NULL;
 ### Review Calculations: If the value is a result of a calculation (like a sum or division), the intermediate or final result might be exceeding the defined data type limits. You might need to cast the operands in your calculation to a larger data type (e.g., BIGINT or a larger DECIMAL) before the operation takes place.
 
 ### Ensure Data Type Consistency: If an INT or FLOAT is implicitly cast to a smaller NUMERIC type during an operation, an error can occur. Ensure that all involved data types are large enough to handle the maximum potential value throughout your operation. 
- 
