@@ -14,3 +14,4 @@
 - Related note: `@Repository` adds exception translation for persistence exceptions; `@Transactional` is unrelated and can be applied to any stereotype.
 
 Recommendation: using `@Component` is fine technically. Prefer `@Service` when the class represents business/service logic (for clearer intent and possible pointcut/tooling matches).
+
