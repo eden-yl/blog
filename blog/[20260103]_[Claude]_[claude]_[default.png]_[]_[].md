@@ -30,5 +30,7 @@ public class Product {
 }
 ```
 
-Deserialization: Incoming JSON with any of "producerName", "producer", "produced_by", or "createdBy" will successfully map to the producerName field.
-Serialization: When this Java Product object is converted to JSON, the output will only use the key "producerName". 
+Deserialisation: Incoming JSON with any of "producerName", "producer", "produced_by", or "createdBy" will successfully map to the producerName field.
+Serialisation: When this Java Product object is converted to JSON, the output will only use the key "producerName". 
+
+
